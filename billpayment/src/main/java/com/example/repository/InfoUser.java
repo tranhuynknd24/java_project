@@ -1,5 +1,11 @@
-package com.example.sqlconnection;
+package com.example.repository;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+/*Class contains info of user*/
+@Component
+@Primary
 public class InfoUser {
 	public int customerID;
 	public String customerName;

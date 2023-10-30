@@ -1,4 +1,4 @@
-package com.example.sqlconnection;
+package com.example.repository;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,19 +7,21 @@ import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 @Primary
-public class ConnectJDBCImpl implements ConnectJDBC {
+public class JDBCRepositoryImpl implements JDBCRepository {
+	private String query;
+	private String dbName;
 	@Autowired
-	 private InitConnectionType mySQL = new InitConnectionType();
-	 private String query;
-	 private String dbName;
+	private InitConnectionType mySQL;
+	@Autowired
+	InfoUser infoUser;
 	
-	/* Init SQL connection */
+	/* Connect SQL */
 	@Override
-	public InitConnectionType InitSQLConnection(final String hostName, final String dbName, final String username, final String password) {
+	public InitConnectionType connectSQL(final String hostName, final String dbName, final String username, final String password) {
 		String connectionURL = "jdbc:mysql://" + hostName + "/" + dbName;
 		
 		/* Get database name */
@@ -39,9 +41,8 @@ public class ConnectJDBCImpl implements ConnectJDBC {
 	
 	/* Get one info user */
 	@Override
-	public InfoUser GetInfoOneUser(final int customerId, final String providerName) {
+	public InfoUser getInfoOneUser(final int customerId, final String providerName) {
 		PreparedStatement pstm = null;
-		InfoUser infoUser = new InfoUser();
 		
 		query = "SELECT * FROM " + this.dbName + "." + providerName + " WHERE CustomerID = ?";
 		try {
@@ -80,7 +81,7 @@ public class ConnectJDBCImpl implements ConnectJDBC {
 	/* Delete data */
 	
 	/* Unintialized SQL connection */
-	public void UninitSQLConnection() {
+	public void uninitSQLConnection() {
 		try {
 			mySQL.conn.close();
 		} catch (SQLException e) {

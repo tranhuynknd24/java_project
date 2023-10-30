@@ -1,4 +1,4 @@
-package com.example.sqlconnection;
+package com.example.repository;
 
 public enum ReturnType {
 	E_OK,
