@@ -6,18 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Primary
 public class JDBCRepositoryImpl implements JDBCRepository {
 	private String query;
 	private String dbName;
 	@Autowired
 	private InitConnectionType mySQL;
 	@Autowired
-	InfoUser infoUser;
+	private UserInfo userInfo;
 	
 	/* Connect SQL */
 	@Override
@@ -34,6 +32,7 @@ public class JDBCRepositoryImpl implements JDBCRepository {
 			// TODO Auto-genera ted catch block
 			e.printStackTrace();
 			System.out.println(e.toString());
+			System.out.println("Ket noi that bai");
 			mySQL.returnValue = ReturnType.E_NOT_OK;
 		}
 		return mySQL;
@@ -41,7 +40,7 @@ public class JDBCRepositoryImpl implements JDBCRepository {
 	
 	/* Get one info user */
 	@Override
-	public InfoUser getInfoOneUser(final int customerId, final String providerName) {
+	public UserInfo getInfoOneUser(final int customerId, final String providerName) {
 		PreparedStatement pstm = null;
 		
 		query = "SELECT * FROM " + this.dbName + "." + providerName + " WHERE CustomerID = ?";
@@ -54,13 +53,13 @@ public class JDBCRepositoryImpl implements JDBCRepository {
 			ResultSet rs = pstm.executeQuery();
 			/* Get info user */
 			if(rs.next()) {
-				infoUser.customerID = rs.getInt("CustomerID");
-				infoUser.customerName = rs.getString("CustomerName");
-				infoUser.customerBirth = rs.getString("CustomerBirth");
-				infoUser.customerAddress = rs.getString("CustomerAddress");
-				infoUser.billCode = rs.getInt("BillCode");
-				infoUser.billPayment = rs.getInt("BillPayment");
-				infoUser.billStatus = rs.getString("BillStatus");
+				userInfo.customerID = rs.getInt("CustomerID");
+				userInfo.customerName = rs.getString("CustomerName");
+				userInfo.customerBirth = rs.getString("CustomerBirth");
+				userInfo.customerAddress = rs.getString("CustomerAddress");
+				userInfo.billCode = rs.getInt("BillCode");
+				userInfo.billPayment = rs.getInt("BillPayment");
+				userInfo.billStatus = rs.getString("BillStatus");
 			}
 			
 		} catch (SQLException e) {
@@ -69,7 +68,7 @@ public class JDBCRepositoryImpl implements JDBCRepository {
 			e.toString();
 		}
 		
-		return infoUser;
+		return userInfo;
 	}
 	
 	/* Get all info user */

@@ -5,7 +5,7 @@ public interface JDBCRepository {
 	public InitConnectionType connectSQL(final String hostName, final String dbName, final String username, final String password);
 	
 	/* Get one info user */
-	public InfoUser getInfoOneUser(final int customerId, final String providerName);
+	public UserInfo getInfoOneUser(final int customerId, final String providerName);
 	
 	/* Get all info user */
 	

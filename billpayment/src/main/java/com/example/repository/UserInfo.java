@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 /*Class contains info of user*/
 @Component
 @Primary
-public class InfoUser {
+public class UserInfo {
 	public int customerID;
 	public String customerName;
 	public String customerBirth;
