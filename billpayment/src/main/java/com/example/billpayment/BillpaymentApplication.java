@@ -16,17 +16,17 @@ public class BillpaymentApplication {
 	{
 		ApplicationContext context = SpringApplication.run(BillpaymentApplication.class, args);
 		
-		final String hostName = "127.0.0.1:3306";
-		final String dbName = "databasename";
-		final String username = "root";
-		final String password = "khunglongcon3";
+//		final String hostName = "127.0.0.1:3306";
+//		final String dbName = "databasename";
+//		final String username = "root";
+//		final String password = "khunglongcon3";
 //		int customerID = 45799;
 //		String providerName = "electricbill";
 		
-		JDBCRepository jdbcRepository = context.getBean(JDBCRepository.class);
-		UserInfo infoUser = context.getBean(UserInfo.class);
-		
-		InitConnectionType initConnection = jdbcRepository.connectSQL(hostName, dbName, username, password);
+//		JDBCRepository jdbcRepository = context.getBean(JDBCRepository.class);
+//		UserInfo infoUser = context.getBean(UserInfo.class);
+//		
+//		InitConnectionType initConnection = jdbcRepository.connectSQL(hostName, dbName, username, password);
 		
 //		if (initConnection.returnValue == ReturnType.E_OK) 
 //		{
