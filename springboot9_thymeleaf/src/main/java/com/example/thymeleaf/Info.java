@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 @Data
 public class Info 
 {
-	private String key;
+	String key;
 	private String value;
 	
 }
