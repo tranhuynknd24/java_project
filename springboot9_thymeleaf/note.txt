@@ -1,0 +1,8 @@
+ISSUE:
+
+1. Chon 1 file trong Maven Dependencies -> maven clean -> maven build -> build failed -> lam loi build project
+	-> chua biet fix
+
+2. @Data ko sinh ra cac ham Getter, Setter,... 
+	-> Fix: + Go where you Lombok jar is (C:\Users\TRAN HUY\.m2\repository\org\projectlombok\lombok\1.18.30)
+			+ Run cms with Administrator -> install
