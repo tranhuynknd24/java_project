@@ -3,6 +3,7 @@
 ##############################################
 1. index.html se la file default ma Thymeleaf tim dau tien va tra ve moi khi user vao dia chi "/" hay "http://localhost:8085/" ma chung ta ko can config gi ca
 
+2. Cau hinh messages duoc cai dat torng file application.properties
 ##############################################
 #	ISSUE
 ##############################################
