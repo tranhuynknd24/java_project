@@ -1,5 +1,13 @@
 package com.example.thymeleaf;
 
-public class Info {
+import lombok.Data;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
+@Data
+public class Info 
+{
+	private String key;
+	private String value;
+	
 }
