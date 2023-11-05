@@ -3,12 +3,14 @@ package com.example.webtodo;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+@Controller
 public class WebController 
 {
 	/* Su dung tam List de chua danh sach cong viec
@@ -25,7 +27,7 @@ public class WebController
 						@RequestParam(value = "limit", required = false) Integer limit)
 	{
 		/* Tra ve doi tuong todoList
-		 * Neu nguoi dung gui den param limit thi tra vesublist cua todolist
+		 * Neu nguoi dung gui den param limit thi tra ve sublist cua todolist
 		 */
 		model.addAttribute("todoList", limit != null ? todoList.subList(0, limit) : todoList);
 		
