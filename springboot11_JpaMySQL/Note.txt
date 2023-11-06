@@ -1,0 +1,7 @@
+
+QUESTIONS
+
+userRepository.findAll()
+			  .forEach(System.out::println);
+			  
+2 dong lenh tren la call 2 ham tu object userRepository???
