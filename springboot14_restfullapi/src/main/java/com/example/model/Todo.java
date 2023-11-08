@@ -1,4 +1,4 @@
-package com.example.restfullapi;
+package com.example.model;
 
 import lombok.Data;
 
