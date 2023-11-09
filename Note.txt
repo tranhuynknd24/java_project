@@ -14,15 +14,25 @@
 
 2. @Data ko sinh ra cac ham Getter, Setter,... 
     -> Fix: + Go where you Lombok jar is (C:\Users\TRAN HUY\.m2\repository\org\projectlombok\lombok\1.18.30)
-            + Run cms with Administrator -> install
+            + Open CMD with Administrator -> run: java -jar lombok-1.16.10.jar -> install
             
 
 ##############################################
 #   QUESTIONS
 ##############################################
-Project 11
+---------------------------------
+- Project 11                    -
+---------------------------------
     userRepository.findAll()
                   .forEach(System.out::println);
                   
     2 dong lenh tren la call 2 ham tu object userRepository???
-
+    
+    
+---------------------------------
+- Project 14                    -
+---------------------------------
+3 class de chung 1 package -> nhan Bean binh thuong
+3 class de o 3 package khac nhau -> ko nhan Bean -> ko get duoc request
+-> Fix tam thoi: add @ComponentScan
+-> Nguyen nhan: chua biet???
